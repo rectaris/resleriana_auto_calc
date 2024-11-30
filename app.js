@@ -16,8 +16,9 @@ const firebaseConfig = {
   measurementId: "G-JZ6PLZ9DES"
 };
 
-// Firebaseの初期化
-const app = firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = firebase.firestore(app);
 
 // データの登録
