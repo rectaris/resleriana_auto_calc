@@ -2,18 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Firebaseデータ登録</title>
+    <title>Firebaseデータ表示</title>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <script src="app.js" defer></script>
+    <script src="js/display.js" defer></script>
 </head>
 <body>
-    <h1>Firebaseデータ登録</h1>
-    <form id="dataForm">
-        <input type="text" id="name" placeholder="名前" required>
-        <input type="number" id="age" placeholder="年齢" required>
-        <button type="submit">登録</button>
-    </form>
+    <h1>Firebaseデータ表示</h1>
+    <a href="register.html">データ登録ページへ</a>
     <div id="data"></div>
 </body>
 </html>
