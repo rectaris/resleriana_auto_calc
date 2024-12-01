@@ -22,13 +22,32 @@ const db = getFirestore(app);
 async function fetchData() {
     const dataDiv = document.getElementById('data');
     dataDiv.innerHTML = ''; // 既存のデータをクリア
+
+    // テーブルの作成
+    const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
+    const nameHeader = document.createElement('th');
+    nameHeader.textContent = '名前';
+    const ageHeader = document.createElement('th');
+    ageHeader.textContent = '年齢';
+    headerRow.appendChild(nameHeader);
+    headerRow.appendChild(ageHeader);
+    table.appendChild(headerRow);
+
     const querySnapshot = await getDocs(collection(db, 'github-pages-collection'));
     querySnapshot.forEach((doc) => {
         const data = doc.data();
-        const dataElement = document.createElement('div');
-        dataElement.textContent = JSON.stringify(data);
-        dataDiv.appendChild(dataElement);
+        const row = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        nameCell.textContent = data.name;
+        const ageCell = document.createElement('td');
+        ageCell.textContent = data.age;
+        row.appendChild(nameCell);
+        row.appendChild(ageCell);
+        table.appendChild(row);
     });
+
+    dataDiv.appendChild(table);
 }
 
 fetchData();
